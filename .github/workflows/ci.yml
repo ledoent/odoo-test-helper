@@ -43,7 +43,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Install odoo-test-helper
-        run: pip install .
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          pip install .
       - name: Install addons and dependencies
         run: oca_install_addons
       - name: Initialize test db

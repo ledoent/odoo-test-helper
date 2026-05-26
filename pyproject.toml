@@ -8,9 +8,9 @@ authors = [
 description = "Our Odoo project tools"
 readme = "README.rst"
 keywords = ["odoo", "project"]
-license = {file = "LICENSE"}
+license = "LGPL-3.0-or-later"
+license-files = ["LICENSE"]
 classifiers = [
-    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
     "Programming Language :: Python :: 3",
     "Framework :: Odoo",
     "Development Status :: 2 - Pre-Alpha",
@@ -39,6 +39,7 @@ build-backend = "setuptools.build_meta"
 find = {}
 
 [tool.setuptools_scm]
+fallback_version = "0.0.0"
 
 [tool.pytest.ini_options]
 markers = [
