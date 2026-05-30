@@ -20,7 +20,10 @@ classifiers = [
 dependencies = [
 ]
 requires-python = ">=3.8"
-dynamic = ["version"]
+# Static version on this fork: avoids setuptools_scm needing git at build
+# time (the OCA CI container hits a git safe.directory / dubious-ownership
+# error). This fork exists only to serve the 19.0 git pin.
+version = "2.1.3.99"
 
 [project.urls]
 homepage = "https://github.com/oca/odoo-test-helper"
@@ -32,13 +35,11 @@ test = []
 convert = []
 
 [build-system]
-requires = ["setuptools>=64", "setuptools_scm[toml]>=6.2"]
+requires = ["setuptools>=64"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages]
 find = {}
-
-[tool.setuptools_scm]
 
 [tool.pytest.ini_options]
 markers = [
