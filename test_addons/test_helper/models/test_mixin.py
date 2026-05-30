@@ -12,7 +12,8 @@ class TestMixin(models.AbstractModel):
 
     test_char = fields.Char()
 
-    @api.model
-    def create(self, vals):
-        vals["name"] = "FOO-{}".format(vals["name"])
-        return super(TestMixin, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            vals["name"] = "FOO-{}".format(vals["name"])
+        return super().create(vals_list)
