@@ -44,6 +44,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          # setuptools_scm derives the version from git tags; a shallow
+          # checkout has none and the wheel build fails.
+          fetch-depth: 0
       - name: Install odoo-test-helper
         run: pip install .
       - name: Install addons and dependencies
